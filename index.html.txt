@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逢甲美食指南 | 觀光客必備</title>
+    <style>
+        :root {
+            --primary-color: #ff7e5f;
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .filter-container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .filter-btn {
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            margin: 0 0 10px 0;
+            color: #222;
+        }
+        .card-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .tag {
+            display: inline-block;
+            background: #eee;
+            color: #555;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>逢甲美食指南</h1>
+        <p>觀光客專屬！快速找到你想吃的台式與義式美味</p>
+    </header>
+
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">全部顯示</button>
+        <button class="filter-btn" data-filter="rice">飯類</button>
+        <button class="filter-btn" data-filter="noodle">麵類</button>
+        <button class="filter-btn" data-filter="taiwanese">台式</button>
+        <button class="filter-btn" data-filter="italian">義式</button>
+    </div>
+
+    <div class="gallery">
+        <div class="card" data-category="rice taiwanese">
+            <img class="card-img" src="https://images.unsplash.com/photo-1588675402035-776079979b9b?auto=format&fit=crop&w=300&q=80" alt="魯肉飯">
+            <div class="card-content">
+                <h3 class="card-title">經典逢甲魯肉飯</h3>
+                <p class="card-desc">肥瘦相間的滷肉搭配香Q米飯，在地人與觀光客必吃的台式經典，上菜速度極快！</p>
+                <span class="tag">飯類</span>
+                <span class="tag">台式</span>
+            </div>
+        </div>
+
+        <div class="card" data-category="noodle italian">
+            <img class="card-img" src="https://images.unsplash.com/photo-1598866594230-a7c12756260f?auto=format&fit=crop&w=300&q=80" alt="義大利麵">
+            <div class="card-content">
+                <h3 class="card-title">巷弄義式坊</h3>
+                <p class="card-desc">隱藏在逢甲巷弄裡的平價義大利麵，白醬濃郁不膩口，適合喜歡西式口味的你。</p>
+                <span class="tag">麵類</span>
+                <span class="tag">義式</span>
+            </div>
+        </div>
+
+        <div class="card" data-category="noodle taiwanese">
+            <img class="card-img" src="https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=300&q=80" alt="牛肉麵">
+            <div class="card-content">
+                <h3 class="card-title">老饕紅燒牛肉麵</h3>
+                <p class="card-desc">湯頭熬製 12 小時，牛肉大塊軟嫩，充滿台式風味的飽足感首選。</p>
+                <span class="tag">麵類</span>
+                <span class="tag">台式</span>
+            </div>
+        </div>
+        
+        <div class="card" data-category="rice italian">
+            <img class="card-img" src="https://images.unsplash.com/photo-1626079361819-331e9c20a9e3?auto=format&fit=crop&w=300&q=80" alt="燉飯">
+            <div class="card-content">
+                <h3 class="card-title">松露野菇燉飯</h3>
+                <p class="card-desc">米粒吸滿高湯精華，散發淡淡松露香氣，給觀光客一個異國風情的晚餐選擇。</p>
+                <span class="tag">飯類</span>
+                <span class="tag">義式</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const targetFilter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    const cardCategories = card.getAttribute('data-category');
+                    
+                    if (targetFilter === 'all' || cardCategories.includes(targetFilter)) {
+                        card.classList.remove('hide');
+                    } else {
+                        card.classList.add('hide');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
